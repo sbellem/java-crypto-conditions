@@ -23,11 +23,11 @@ public class TestEd25519Fulfillment {
 
     final byte[] TEST_SEED = Utils.hexToBytes("0000000000000000000000000000000000000000000000000000000000000000");
     static final byte[] TEST_PK = Utils.hexToBytes("3b6a27bcceb6a42d62a3a8d02a6f0d73653215771de243a63ac048a18b59da29");
-    static final byte[] TEST_MSG = "This is a secret message".getBytes(Charset.forName("UTF-8"));
+    static final byte[] TEST_MSG = "Hello World! Conditions are here!".getBytes(Charset.forName("UTF-8"));
     static final byte[] TEST_INPUT_STREAM_FF_OK = Utils.hexToBytes(
-            "000462203b6a27bcceb6a42d62a3a8d02a6f0d73653215771de243a63ac048a18b59da294094825896c7075c31bcb81f06dba2bdcd9dcf16e79288d4b9f87c248215c8468d475f429f3de3b4a2cf67fe17077ae19686020364d6d4fa7a0174bab4a123ba0f");
+            "000460ec172b93ad5e563bf4932c70e1245034c35467ef2efd4d64ebf819683467e2bfb62291fad9432f8f298b9c4a4895dbe293f6ffda1a68dadf0ccdef5f47a0c7212a5fea3cda97a3f4c03ea9f2e8ac1cec86a51d452127abdba09d1b6f331c070a");
     static final byte[] TEST_INPUT_STREAM_FF_WRONG = Utils.hexToBytes(
-            "000462203b6a27bcceb6a42d62a3a8d02a6f0d73653215771de243a63ac048a18b59da294094825896c7075c31bcb81f06dba2bdcd9dcf16e79288d4b9f87c248215c8468d475f429f3de3b4a2cf67fe17077ae19686020364d6d4fa7a0174bab4a1111111");
+            "000460ec172b93ad5e563bf4932c70e1245034c35467ef2efd4d64ebf819683467e2bf3a727b27c60beb9ab68b8fe29860fca856c38580ca2f5a9c35d01aa64c3aa5dc336ef4606834f547b3f9c0ed4ed95ca15cc78a641e90ded99d737b38be68030e");
 
     static final byte[] TEST_KO_MSG = "This is a wrong secret message".getBytes(Charset.forName("UTF-8"));
     static final byte[] TEST_MSG_SIG = Utils.hexToBytes(
@@ -35,7 +35,7 @@ public class TestEd25519Fulfillment {
     static final byte[] TEST_KO_MSG_SIG = Utils.hexToBytes(
             "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
 
-    static final String FF_OK_URI = "cf:4:IDtqJ7zOtqQtYqOo0CpvDXNlMhV3HeJDpjrASKGLWdopQJSCWJbHB1wxvLgfBtuivc2dzxbnkojUufh8JIIVyEaNR19Cnz3jtKLPZ_4XB3rhloYCA2TW1Pp6AXS6tKEjug8";
+    static final String FF_OK_URI = "cf:4:7Bcrk61eVjv0kyxw4SRQNMNUZ-8u_U1k6_gZaDRn4r-2IpH62UMvjymLnEpIldvik_b_2hpo2t8Mze9fR6DHISpf6jzal6P0wD6p8uisHOyGpR1FISer26CdG28zHAcK";
 
     private Fulfillment getPayload(byte[] ffOEREncoded) throws IOException, UnsupportedConditionException, OerDecodingException {
         ByteArrayInputStream auxi = new ByteArrayInputStream(ffOEREncoded);
