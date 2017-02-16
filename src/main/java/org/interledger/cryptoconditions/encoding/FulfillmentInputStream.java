@@ -85,8 +85,10 @@ public class FulfillmentInputStream extends OerInputStream {
                  *     signature OCTET STRING (SIZE(64))
                  * }
                      */
-                    byte[] bytesPublicKey = stream01.readOctetString();
-                    byte[] bytesSignatureEd25519 = stream01.readOctetString();
+                    byte[] bytesPublicKey = new byte[32];
+                    int read_bytes1 = stream01.read(bytesPublicKey, 0, 32);
+                    byte[] bytesSignatureEd25519 = new byte[64]; 
+                    int read_bytes2 = stream01.read(bytesSignatureEd25519, 0, 64);
                     java.security.PublicKey publicKey = Ed25519Fulfillment.publicKeyFromByteArray(new KeyPayload(bytesPublicKey));
                     SignaturePayload signature02 = new SignaturePayload(bytesSignatureEd25519);
                     return new Ed25519Fulfillment(ConditionType.ED25519, payload, publicKey, signature02);
